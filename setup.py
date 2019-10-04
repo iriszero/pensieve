@@ -4,17 +4,17 @@ start_dir = os.getcwd()
 
 # mahimahi
 os.system("sudo sysctl -w net.ipv4.ip_forward=1")
-
-os.system("git clone https://github.com/ravinet/mahimahi")
-os.system("cd mahimahi")
-os.system("./autogen.sh")
-os.system("./configure")
-os.system("make -j")
-os.system("sudo make install")
-os.system("cd ..")
+os.system("sudo apt-get -y install autoconf automake libtool curl make g++ unzip")
 
 # apache server
-os.system("sudo apt-get -y install apache2")
+os.system("sudo apt-get -y install apache2 apache2-dev")
+
+# Protobuf
+os.system("sudo ./scripts/install_protobuf.sh")
+
+# Mahimahi
+os.system("sudo ./scripts/install_mahimahi.sh")
+
 
 # selenium
 os.system("wget 'https://pypi.python.org/packages/source/s/selenium/selenium-2.39.0.tar.gz'")
