@@ -4,9 +4,14 @@ start_dir = os.getcwd()
 
 # mahimahi
 os.system("sudo sysctl -w net.ipv4.ip_forward=1")
-os.system("sudo add-apt-repository -y ppa:keithw/mahimahi")
-os.system("sudo apt-get -y update")
-os.system("sudo apt-get -y install mahimahi")
+
+os.system("git clone https://github.com/ravinet/mahimahi")
+os.system("cd mahimahi")
+os.system("./autogen.sh")
+os.system("./configure")
+os.system("make -j")
+os.system("sudo make install")
+os.system("cd ..")
 
 # apache server
 os.system("sudo apt-get -y install apache2")
